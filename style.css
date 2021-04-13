@@ -1,0 +1,15 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#grid-container {
+  display: grid;
+  width: 540px;
+  height: 540px;
+}
+
+#grid-container div {
+  border: 1px solid black;
+}
