@@ -1,8 +1,9 @@
 const grid = document.getElementById('grid-container');
-let gridNum = 16;
+let gridNum = 22;
 
 function createCell() {
   let cell = document.createElement('div');
+  cell.setAttribute('class', 'cell');
   grid.appendChild(cell);
 }
 
@@ -23,3 +24,10 @@ function drawGrid() {
 }
 
 drawGrid();
+
+let gridCells = Array.from(document.querySelectorAll('.cell'));
+gridCells.forEach((gridCell) => {
+  gridCell.addEventListener('mouseover', () => {
+    gridCell.style.backgroundColor = 'black';
+  });
+});
