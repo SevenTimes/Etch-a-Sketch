@@ -1,15 +1,23 @@
-html,
 body {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #grid-container {
+  margin: 0 auto;
   display: grid;
-  width: 540px;
-  height: 540px;
+  width: 550px;
+  height: 550px;
+  gap: 1px;
 }
 
 .cell {
   border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#grid-reset {
+  margin: 20px 0 40px;
+  line-height: 3em;
 }

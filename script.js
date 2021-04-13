@@ -1,5 +1,6 @@
 const grid = document.getElementById('grid-container');
-let gridNum = 22;
+const defaultGridSize = 16;
+let gridNum = defaultGridSize;
 
 function createCell() {
   let cell = document.createElement('div');
@@ -10,10 +11,10 @@ function createCell() {
 function drawGrid() {
   grid.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
-  let ver = 0;
 
+  let ver = 1;
   while (ver < gridNum) {
-    let hor = 0;
+    let hor = 1;
     while (hor < gridNum) {
       createCell();
       hor++;
@@ -21,13 +22,29 @@ function drawGrid() {
     createCell();
     ver++;
   }
+  let gridCells = Array.from(document.querySelectorAll('.cell'));
+  gridCells.forEach((gridCell) => {
+    gridCell.addEventListener('mouseover', () => {
+      gridCell.style.backgroundColor = 'black';
+    });
+  });
+}
+
+function resetGrid() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.lastChild);
+  }
 }
 
 drawGrid();
 
-let gridCells = Array.from(document.querySelectorAll('.cell'));
-gridCells.forEach((gridCell) => {
-  gridCell.addEventListener('mouseover', () => {
-    gridCell.style.backgroundColor = 'black';
-  });
-});
+function resetBoard() {
+  let userGridSize = prompt('Enter new grid size (2 - 100)');
+  if (userGridSize <= 1 || userGridSize > 100 || isNaN(userGridSize)) {
+    gridNum = defaultGridSize;
+  } else {
+    gridNum = userGridSize;
+  }
+  resetGrid();
+  drawGrid();
+}
