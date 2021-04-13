@@ -12,7 +12,7 @@ function drawGrid() {
   grid.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
 
-  let ver = 1;
+  let ver = 0;
   while (ver < gridNum) {
     let hor = 1;
     while (hor < gridNum) {
